@@ -19,7 +19,7 @@ function App() {
     <div className="App">
         {
           expenses.map((item)=>{
-            return(<ExpenseItems id={item.id} title={item.title} price={item.price} data={item.date} location={item.location}/>)
+            return(<ExpenseItems id={item.id} title={item.title} price={item.price} date={item.date} location={item.location}/>)
           })
         }
     </div>
