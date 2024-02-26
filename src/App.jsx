@@ -1,11 +1,11 @@
 
-import ExpenseItems from './components/ExpenseItems';
+import ExpenseItems from '../src/components/Expenses/ExpenseItems';
 import './App.css';
-import Card from './components/Card';
+import Card from '../src/components/UI/Card';
 
 
 
-function App() {
+const App=()=> {
 
   const expenses = [
     {id:1, title:'Food',price:10,date:new Date(2024,1,26),location:'GZB'},
