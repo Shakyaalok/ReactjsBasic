@@ -1,14 +1,21 @@
+import './ExpenseItems.css'
 import React from 'react'
 
 const ExpenseItems = () => {
+
+    const expenseDate = new Date(2024,1,26);
+    const expenseTitle = 'Food';
+    const expenseAmount = 10;
+
   return (
-    <div>
-      <h3>This is custom made componenet</h3>
-      <h4>Expense Items</h4>
-      <h5>Food Rs 10</h5>
-      <h5>Petrol Rs 100</h5>
-      <h5>Movies Rs 200</h5>
-      <h5></h5>
+
+   <div className='expense-item'>
+         <div>{expenseDate.toISOString()}</div>
+      <div className='expense-item__description'>
+      <h2>{expenseTitle}</h2>
+      <div className='expense-item__price'>{expenseAmount}</div>
+      </div>
+
     </div>
   )
 }
