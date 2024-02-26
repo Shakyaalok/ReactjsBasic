@@ -1,6 +1,7 @@
-import logo from './logo.svg';
+
 import ExpenseItems from './components/ExpenseItems';
 import './App.css';
+import Card from './components/Card';
 
 
 
@@ -16,13 +17,13 @@ function App() {
 
 
   return (
-    <div className="App">
+    <Card className="expenses">
         {
           expenses.map((item)=>{
             return(<ExpenseItems id={item.id} title={item.title} price={item.price} date={item.date} location={item.location}/>)
           })
         }
-    </div>
+    </Card>
   );
 }
 
