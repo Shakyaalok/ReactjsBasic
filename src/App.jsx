@@ -2,6 +2,7 @@
 import ExpenseItems from '../src/components/Expenses/ExpenseItems';
 import './App.css';
 import Card from '../src/components/UI/Card';
+import ExpenseForm from './components/Expenses/ExpenseForm';
 
 
 
@@ -17,13 +18,18 @@ const App=()=> {
 
 
   return (
+    <>
     <Card className="expenses">
         {
           expenses.map((item)=>{
             return(<ExpenseItems id={item.id} title={item.title} price={item.price} date={item.date} location={item.location}/>)
           })
         }
+        
     </Card>
+    <ExpenseForm/>
+    </>
+    
   );
 }
 
