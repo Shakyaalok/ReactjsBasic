@@ -53,11 +53,7 @@ const ExpenseForm = () => {
      }
 */
 
-    const submitFormHandler = () =>{
-        console.log(title,price,place,date);
-     
-    }
-
+  
     const titleHandler  = (e)=>{
        setTitle(e.target.value)
     }
@@ -74,9 +70,22 @@ const ExpenseForm = () => {
        setDate(e.target.value)
     }
 
+    const submitFormHandler = (e) =>{
+        e.preventDefault();
+
+        const expenseDetails = {
+            title:title,
+            price:price,
+            place:place,
+            data:new Date(date)
+        }
+        console.log(expenseDetails);     
+    }
+
+
 
   return ( 
-    <form>
+    <form onSubmit={submitFormHandler}>
      <div className='new-expense__controls'>
 
         <div className='new-expense__control'>
@@ -101,7 +110,7 @@ const ExpenseForm = () => {
      </div>
      
      <div className='new-expense__actions'>
-     <button onClick={submitFormHandler}>Add Expense</button>
+     <button type='submit'>Add Expense</button>
      </div>
      </form>
   )
