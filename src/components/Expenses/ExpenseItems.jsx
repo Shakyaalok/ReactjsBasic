@@ -1,14 +1,22 @@
 import './ExpenseItems.css'
-import React from 'react'
+import React,{useState} from 'react'
 import ExpenseDate from './ExpenseDate'
 import ExpenseDetails from './ExpenseDetails'
 import Card from '../UI/Card'
 
 const ExpenseItems = (props) => {
 
+  const [title,setTitle] = useState(props.title)
+  const [price,setPrice] = useState(props.price)
+
   //adding event listener using react
   const clickHandler = ()=>{
-   console.log('clicked!!!!')      
+    setTitle('Updated')
+   console.log(title)      
+  }
+
+  const updatePriceHandler = ()=>{
+    setPrice('$100')
   }
 
    
@@ -19,8 +27,9 @@ const ExpenseItems = (props) => {
       <div className='expense-item__description'>
       <h2>{props.id}</h2>
       <h2>{props.location}</h2>
-      <ExpenseDetails title={props.title} price={props.price}/>
+      <ExpenseDetails title={title} price={price}/>
       <button onClick={clickHandler}>Changed title</button>
+      <button onClick={updatePriceHandler}>Update Price</button>
       </div>
 
     </Card>
