@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-
+import './ExpenseForm.css'
 const ExpenseForm = () => {
 
      const [title,setTitle] = useState('');
@@ -30,25 +30,34 @@ const ExpenseForm = () => {
 
 
   return ( 
-    <div>
-     <div>
+    <form>
+     <div className='new-expense__controls'>
+
+        <div className='new-expense__control'>
         <label for="title">Title</label>
         <input type="text"  placeholder='Enter your tile like cosmetics' onChange={titleHandler}/>
-     </div>
-     <div>
+        </div>
+
+        <div className='new-expense__control'>
         <label for="price">Price</label>
-        <input type="number"  placeholder='Enter your Price' onChange={priceHandler}/>
-     </div>
-     <div>
+        <input type="number"  placeholder='Enter your Price' min='0.01' step='0.01' onChange={priceHandler}/>
+        </div>
+        
+        <div className='new-expense__control'>
         <label for="place">Place</label>
         <input type="text"  placeholder='Enter place of expense' onChange={placeHandler}/>
-     </div>
-     <div>
+        </div>
+
+        <div className='new-expense__control'>
         <label for="date">Date</label>
-        <input type="date"  onChange={dateHandler} />
+        <input type="date" min='2019-01-01' max='2024-12-31'  onChange={dateHandler} />
+        </div>
      </div>
-     <button onClick={submitFormHandler}>Submit</button>
+     
+     <div className='new-expense__actions'>
+     <button onClick={submitFormHandler}>Add Expense</button>
      </div>
+     </form>
   )
 }
 

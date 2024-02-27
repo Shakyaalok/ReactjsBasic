@@ -2,7 +2,7 @@
 import ExpenseItems from '../src/components/Expenses/ExpenseItems';
 import './App.css';
 import Card from '../src/components/UI/Card';
-import ExpenseForm from './components/Expenses/ExpenseForm';
+import ExpenseForm from './components/NewExpenses/NewExpense';
 
 
 
@@ -19,6 +19,7 @@ const App=()=> {
 
   return (
     <>
+    <ExpenseForm/>
     <Card className="expenses">
         {
           expenses.map((item)=>{
@@ -27,7 +28,7 @@ const App=()=> {
         }
         
     </Card>
-    <ExpenseForm/>
+   
     </>
     
   );
