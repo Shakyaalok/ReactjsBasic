@@ -6,6 +6,7 @@ import Card from '../src/components/UI/Card';
 import ExpenseForm from './components/NewExpenses/NewExpense';
 import NewExpens from './components/NewExpenses/NewExpense';
 import ExpensesFilter from './components/Expenses/ExpensesFilter';
+import ExpensesList from './components/Expenses/ExpensesList';
 
 
 
@@ -38,24 +39,13 @@ const App=()=> {
 
 
 
-
- 
-
-
-
   return (
     <div className="expenses">
     <NewExpens onAddExpense = {AddExpenseHandler}/>
     <ExpensesFilter selected = {filteredYear } onChangeFilter={filterYearHandler}/>
     <Card >
-
-        {filterExpense().length==0?(<p> No Expense Found!</p>):(
-              filterExpense().map((item)=>{
-                return(<ExpenseItems key = {item.id} id={item.id} title={item.title} price={item.price} date={item.date} location={item.location} />)
-              }) 
-        )}
+          <ExpensesList items={filterExpense}/>
        
-        
     </Card>
    
     </div>
