@@ -77,7 +77,7 @@ const ExpenseForm = (props) => {
             title:title,
             price:price,
             place:place,
-            data:new Date(date)
+            date:new Date(date)
         }
       props.onSaveExpenseData(expenseDetails)
         setTitle('')  // this will only work when we give the value attribute to the input fileds as given below
