@@ -33,19 +33,19 @@ const App=()=> {
 
 
   return (
-    <>
+    <div className="expenses">
     <NewExpens onAddExpense = {AddExpenseHandler}/>
     <ExpensesFilter selected = {filteredYear } onChangeFilter={filterYearHandler}/>
-    <Card className="expenses">
+    <Card >
         {
           expenses.map((item)=>{
-            return(<ExpenseItems id={item.id} title={item.title} price={item.price} date={item.date} location={item.location}/>)
+            return(<ExpenseItems key = {item.id} id={item.id} title={item.title} price={item.price} date={item.date} location={item.location}/>)
           })
         }
         
     </Card>
    
-    </>
+    </div>
     
   );
 }
