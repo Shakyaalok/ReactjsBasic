@@ -17,10 +17,15 @@ const App=()=> {
   ]
 
 
+  const AddExpense = (getdetails) =>{
+         console.log(getdetails)
+  }
+
+
 
   return (
     <>
-    <NewExpens/>
+    <NewExpens onAddExpense = {AddExpense}/>
     <Card className="expenses">
         {
           expenses.map((item)=>{

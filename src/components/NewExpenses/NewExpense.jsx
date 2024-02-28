@@ -2,7 +2,7 @@ import React from 'react'
 import './NewExpense.css'
 import ExpenseForm from './ExpensForm'
 
-const NewExepnse = () => {
+const NewExepnse = (props) => {
 
   const saveExpenseDataHandler = (getdatafromchilder) =>{
         const expenseData = {
@@ -10,7 +10,7 @@ const NewExepnse = () => {
           id:Math.random().toString()
         }
 
-        console.log(expenseData)
+        props.onAddExpense(expenseData)
   }
 
   return (
