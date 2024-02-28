@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import './ExpenseForm.css'
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
 
      const [title,setTitle] = useState('');
      const [price,setPrice] = useState('');
@@ -79,7 +79,11 @@ const ExpenseForm = () => {
             place:place,
             data:new Date(date)
         }
-        console.log(expenseDetails);     
+      props.onSaveExpenseData(expenseDetails)
+        setTitle('')  // this will only work when we give the value attribute to the input fileds as given below
+        setPrice('')
+        setPlace('')
+        setDate('')
     }
 
 
@@ -90,22 +94,22 @@ const ExpenseForm = () => {
 
         <div className='new-expense__control'>
         <label for="title">Title</label>
-        <input type="text"  placeholder='Enter your tile like cosmetics' onChange={titleHandler}/>
+        <input type="text"  placeholder='Enter your tile like cosmetics' value={title} onChange={titleHandler}/>
         </div>
 
         <div className='new-expense__control'>
         <label for="price">Price</label>
-        <input type="number"  placeholder='Enter your Price' min='0.01' step='0.01' onChange={priceHandler}/>
+        <input type="number"  placeholder='Enter your Price' min='0.01' step='0.01' value={price} onChange={priceHandler}/>
         </div>
         
         <div className='new-expense__control'>
         <label for="place">Place</label>
-        <input type="text"  placeholder='Enter place of expense' onChange={placeHandler}/>
+        <input type="text"  placeholder='Enter place of expense' value={place} onChange={placeHandler}/>
         </div>
 
         <div className='new-expense__control'>
         <label for="date">Date</label>
-        <input type="date" min='2019-01-01' max='2024-12-31'  onChange={dateHandler} />
+        <input type="date" min='2019-01-01' max='2024-12-31'  value={date} onChange={dateHandler} />
         </div>
      </div>
      
