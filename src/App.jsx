@@ -28,10 +28,15 @@ const App=()=> {
 
   // but there is one issue as of now when i clicked on mutliple time then the list is not updating why?
   const filterYearHandler = (selectedYear)=>{
-    const filterExpenses = expenses.filter((expense)=>expense.date.getFullYear()==selectedYear);
     setFilteredYear(selectedYear)
-    setExpenses(filterExpenses)
   }
+
+ // but now the problem is solved
+  const filterExpense = ()=>{
+      return expenses.filter((expense)=>expense.date.getFullYear()==filteredYear);
+  }
+
+
 
 
  
@@ -43,11 +48,13 @@ const App=()=> {
     <NewExpens onAddExpense = {AddExpenseHandler}/>
     <ExpensesFilter selected = {filteredYear } onChangeFilter={filterYearHandler}/>
     <Card >
-        {
-          expenses.map((item)=>{
-            return(<ExpenseItems key = {item.id} id={item.id} title={item.title} price={item.price} date={item.date} location={item.location} />)
-          })
-        }
+
+        {filterExpense().length==0?(<p> No Expense Found!</p>):(
+              filterExpense().map((item)=>{
+                return(<ExpenseItems key = {item.id} id={item.id} title={item.title} price={item.price} date={item.date} location={item.location} />)
+              }) 
+        )}
+       
         
     </Card>
    
