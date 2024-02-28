@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Card from '../src/components/UI/Card';
 import ExpenseForm from './components/NewExpenses/NewExpense';
 import NewExpens from './components/NewExpenses/NewExpense';
+import ExpensesFilter from './components/Expenses/ExpensesFilter';
 
 
 
@@ -17,10 +18,16 @@ const App=()=> {
     { id: 4, title: 'Cosmetics', price: 110, date: new Date(2024, 2, 5), location: 'Agra' }
   ]);
 
+  const [filteredYear,setFilteredYear] = useState('2020');
+
 
   const AddExpenseHandler = (newExpense) =>{
          console.log(newExpense)
          setExpenses(prevExpenses=>[...prevExpenses,newExpense])
+  }
+
+  const filterYearHandler = (selectedYear)=>{
+    setFilteredYear(selectedYear)
   }
 
 
@@ -28,6 +35,7 @@ const App=()=> {
   return (
     <>
     <NewExpens onAddExpense = {AddExpenseHandler}/>
+    <ExpensesFilter selected = {filteredYear } onChangeFilter={filterYearHandler}/>
     <Card className="expenses">
         {
           expenses.map((item)=>{
