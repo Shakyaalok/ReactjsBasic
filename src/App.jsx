@@ -12,10 +12,10 @@ import ExpensesFilter from './components/Expenses/ExpensesFilter';
 const App=()=> {
 
   const [expenses, setExpenses] = useState([
-    { id: 1, title: 'Food', price: 10, date: new Date(2024, 1, 26), location: 'GZB' },
-    { id: 2, title: 'Petrol', price: 100, date: new Date(2024, 1, 22), location: 'Chandigarh' },
-    { id: 3, title: 'Dryer', price: 400, date: new Date(2024, 1, 12), location: 'Delhi' },
-    { id: 4, title: 'Cosmetics', price: 110, date: new Date(2024, 2, 5), location: 'Agra' }
+    { id: 1, title: 'Food', price: 10, date: new Date(2021, 1, 26), location: 'GZB' },
+    { id: 2, title: 'Petrol', price: 100, date: new Date(2020, 1, 22), location: 'Chandigarh' },
+    { id: 3, title: 'Dryer', price: 400, date: new Date(2022, 1, 12), location: 'Delhi' },
+    { id: 4, title: 'Cosmetics', price: 110, date: new Date(2021, 2, 5), location: 'Agra' }
   ]);
 
   const [filteredYear,setFilteredYear] = useState('2020');
@@ -26,9 +26,15 @@ const App=()=> {
          setExpenses(prevExpenses=>[...prevExpenses,newExpense])
   }
 
+  // but there is one issue as of now when i clicked on mutliple time then the list is not updating why?
   const filterYearHandler = (selectedYear)=>{
+    const filterExpenses = expenses.filter((expense)=>expense.date.getFullYear()==selectedYear);
     setFilteredYear(selectedYear)
+    setExpenses(filterExpenses)
   }
+
+
+ 
 
 
 
@@ -39,7 +45,7 @@ const App=()=> {
     <Card >
         {
           expenses.map((item)=>{
-            return(<ExpenseItems key = {item.id} id={item.id} title={item.title} price={item.price} date={item.date} location={item.location}/>)
+            return(<ExpenseItems key = {item.id} id={item.id} title={item.title} price={item.price} date={item.date} location={item.location} />)
           })
         }
         
