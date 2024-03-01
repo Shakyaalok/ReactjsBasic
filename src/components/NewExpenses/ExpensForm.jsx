@@ -6,6 +6,7 @@ const ExpenseForm = (props) => {
      const [price,setPrice] = useState('');
      const [place,setPlace] = useState('');
      const [date,setDate] = useState('');
+     const [isAdd,setIsAdd] = useState(true)
 
 /*
     const [userInput,setUserInput] = useState({
@@ -86,6 +87,12 @@ const ExpenseForm = (props) => {
         setDate('')
     }
 
+     const cancelAddExpenseHandler = ()=>{
+      props.onCancelAddExpense();
+     }
+   
+
+
 
 
   return ( 
@@ -115,6 +122,7 @@ const ExpenseForm = (props) => {
      
      <div className='new-expense__actions'>
      <button type='submit'>Add Expense</button>
+     <button onClick={cancelAddExpenseHandler}>Cancel</button>
      </div>
      </form>
   )
