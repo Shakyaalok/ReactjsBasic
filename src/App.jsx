@@ -1,12 +1,12 @@
 
-import ExpenseItems from '../src/components/Expenses/ExpenseItems';
 import './App.css';
 import { useState } from 'react';
 import Card from '../src/components/UI/Card';
-import ExpenseForm from './components/NewExpenses/NewExpense';
+
 import NewExpens from './components/NewExpenses/NewExpense';
 import ExpensesFilter from './components/Expenses/ExpensesFilter';
 import ExpensesList from './components/Expenses/ExpensesList';
+import ExpensesChart from './components/Expenses/ExpensesChart';
 
 
 
@@ -43,6 +43,7 @@ const App=()=> {
     <div className="expenses">
     <NewExpens onAddExpense = {AddExpenseHandler}/>
     <ExpensesFilter selected = {filteredYear } onChangeFilter={filterYearHandler}/>
+    <ExpensesChart expenses={filterExpense} />
     <Card >
           <ExpensesList items={filterExpense}/>
        
